@@ -24,7 +24,7 @@ def load_library
   new_hash
 end	
 
-def get_japanese_emoticon
+def get_japanese_emoticon(path, emoticons)
   # code goes here
   lookup = load_library(path)
   if lookup[:get_emoticon][emoticon]
