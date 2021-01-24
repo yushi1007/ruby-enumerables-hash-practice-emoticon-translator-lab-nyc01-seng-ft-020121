@@ -32,11 +32,11 @@ end
 
 def get_english_meaning
   # code goes here
-  emoticons = load_library(file_path)
+ emoticons = load_library(file_path)
 
   message = "Sorry, that emoticon was not found"
 
-  translation = emoticons['get_meaning']
+  translation = emoticons["get_emoticon"]
 
 
   translation.each do |key, value|
@@ -47,4 +47,5 @@ def get_english_meaning
   end     
  end
  message
-end
+end	
+
