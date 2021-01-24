@@ -15,10 +15,13 @@ end	end
 
 def get_japanese_emoticon
   # code goes here
-  emoticon_lib = load_library(emoticon_file)
-  japanese_emoticon = emoticon_lib['get_emoticon'][emoticon]
-  japanese_emoticon ? japanese_emoticon : 'Sorry, that emoticon was not found'
-end	end
+  lookup = load_library(path)
+  if lookup[:get_emoticon][emoticon]
+    return lookup[:get_emoticon][emoticon]
+  else
+    return "Sorry, that emoticon was not found"
+  end
+end	
 
 def get_english_meaning
   # code goes here
