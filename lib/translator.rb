@@ -15,7 +15,6 @@ emoticons.each do |english_word, emoticon_set|
   p emoticon_hash
   emoticon_hash
 end
-end
 
 def get_japanese_emoticon
   # code goes here
