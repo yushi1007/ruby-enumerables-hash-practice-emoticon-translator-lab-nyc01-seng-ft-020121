@@ -4,20 +4,24 @@ require "pry"
 
 def load_library
   # code goes here
-  emoticons = YAML.load_file(path)
-  lookup = {}
-  lookup[:get_meaning] = {}
-  lookup[:get_emoticon] = {}
+ emoticons = YAML.load_file(file_path)
 
-  emoticons.each do |word, pair|
-    japanese = pair[1]
-    american = pair[0]
+  new_hash = {
+   'get_meaning' => {},
+   'get_emoticon' => {}
+ }
 
-    lookup[:get_meaning][japanese] = word
-    lookup[:get_emoticon][american] = japanese
+  emoticons.each do |keyvalue, emo|
+
+    english = emo[0]
+   japanese = emo[1]
+
+   new_hash['get_meaning'][japanese] = keyvalue
+   new_hash['get_emoticon'][english] = japanese
+
   end
 
-  lookup
+  new_hash
 end	
 
 def get_japanese_emoticon
