@@ -32,10 +32,19 @@ end
 
 def get_english_meaning
   # code goes here
-  lookup = load_library(path)
-  if lookup[:get_meaning][emoticon]
-    return lookup[:get_meaning][emoticon]
-  else
-    return "Sorry, that emoticon was not found"
-  end
-end 
+  emoticons = load_library(file_path)
+
+  message = "Sorry, that emoticon was not found"
+
+  translation = emoticons['get_meaning']
+
+
+  translation.each do |key, value|
+
+    if key == emoticon
+       return value
+
+  end     
+ end
+ message
+end
