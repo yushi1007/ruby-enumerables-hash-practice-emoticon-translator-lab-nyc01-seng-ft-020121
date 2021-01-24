@@ -16,4 +16,5 @@ def get_english_meaning
     result = "Sorry, that emoticon was not found" 
   end
   result
-end 	en
+end 	
+end
