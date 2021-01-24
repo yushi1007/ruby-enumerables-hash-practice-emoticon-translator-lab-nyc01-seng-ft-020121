@@ -2,16 +2,21 @@
 require "yaml"
 def load_library
   # code goes here
-  emoticon_lib = {'get_meaning' => {}, 'get_emoticon' => {}}
+  emoticons = YAML.load_file(path)
+  lookup = {}
+  lookup[:get_meaning] = {}
+  lookup[:get_emoticon] = {}
 
-  emoticons.each do |meaning, value|
-    english = value[0]
-    japanese = value[1]
-    emoticon_lib['get_meaning'][japanese] = meaning
-    emoticon_lib['get_emoticon'][english] = japanese
+  emoticons.each do |word, pair|
+    japanese = pair[1]
+    american = pair[0]
+
+    lookup[:get_meaning][japanese] = word
+    lookup[:get_emoticon][american] = japanese
   end
-  emoticon_lib
-end	end
+
+  lookup
+end	
 
 def get_japanese_emoticon
   # code goes here
